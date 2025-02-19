@@ -3,7 +3,6 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from formulario import Formulario
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
@@ -16,7 +15,7 @@ driver.get("http://127.0.0.1:5500/Pagina_Ninja_Warrior/formulario.html")
 
 formulario = Formulario(driver)
 
-formulario.submit_form("Carlos", "Valencia", "22", "carlos@example.com", "Este es un mensaje de prueba")
+formulario.submit_form("Carlos", "Valencia", "26", "carlos@gmail.com", "Este es un mensaje de prueba")
 
 alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
 
@@ -30,7 +29,7 @@ try:
 except AssertionError:
     print("Test de fallo: El formulario no se envió correctamente.")
 
-formulario.submit_form("J", "P", "-5", "carlosexample.com", "Corto")
+formulario.submit_form("J", "P", "-5", "carlosejemplo.com", "Corto")
 
 formulario.wait_for_element((By.CSS_SELECTOR, ".error-message"))
 
